@@ -1,7 +1,7 @@
-## Free-For-All CTF Scoring Engine
+## Free-For-All CTF Scoring Engine [![Build Status](https://travis-ci.org/thatarchguy/FFA-CTF-Scoring-Engine-Flask.svg?branch=master)](https://travis-ci.org/thatarchguy/FFA-CTF-Scoring-Engine-Flask)
 I wrote this as an example for a friend to learn flask. 
-
 Converted from an old php webapp I wrote when I learned php.
+
 -----
 ### Purpose
 ----
