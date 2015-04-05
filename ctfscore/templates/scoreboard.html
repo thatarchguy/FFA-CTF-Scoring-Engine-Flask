@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>{{ title }} </title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    </head> 
+    
+
+    <style>
+
+        table {
+          border: 1px solid #666;   
+            width: 100%;
+        }
+        th {
+          background: #f8f8f8; 
+          font-weight: bold;    
+            padding: 2px;
+        }
+
+    </style>
+
+    <body>
+        <h2> FFA CTF Scoreboard</h2>
+        <table id="scores">
+            <tr>
+                <th>User</th>
+                <th>Points</th>
+            </tr>
+            
+        </table>
+        <h2><a href="/">Submit your flags</a></h2>
+    </body>
+
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+              type: "GET",
+              dataType: 'json',
+              url: "/api/scores",
+              success: function(data, textStatus, jqXHR) {
+                drawTable(data);
+              }
+            });
+        });
+
+
+        function drawTable(data) {
+            for (var i = 0; i < data.length; i++) {
+                drawRow(data[i]);
+            }
+        }
+
+        function drawRow(rowData) {
+            var row = $("<tr />")
+            $("#scores").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
+            row.append($("<td>" + rowData.user + "</td>"));
+            row.append($("<td>" + rowData.points + "</td>"));
+        }
+        
+
+    </script>
+
+
+</html>

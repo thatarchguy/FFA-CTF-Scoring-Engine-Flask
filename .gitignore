@@ -1,0 +1,27 @@
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.pyc
+*.swp
+*.egg-info/
+.installed.cfg
+*.egg
+__pycache__/
+.vagrant/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+migrations/
+app.db
+

@@ -1,0 +1,39 @@
+ <html>
+<body>
+<title> {{ title }} </title>
+<h1>CTF SCORING ENGINE</h1>
+<p>
+No User registration. Just find a flag and submit it under a name.
+</p>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <h2><span style="color: blue;">{{ message | safe }}</span></h2>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<form method="POST" class="form-horizontal">
+    {{ InputFlagForm.hidden_tag() }}
+
+    <label for="flag">Flag: </label>
+        {{ InputFlagForm.flag }}<span style="color: red;">*</span>
+        {% for error in InputFlagForm.flag.errors %}
+            <span style="color: red;">[{{error}}]</span>
+        {% endfor %}
+    <br />
+    <label for "user">User: </label>
+        {{ InputFlagForm.user }} <span style="color: red;">*</span>
+        {% for error in InputFlagForm.user.errors %}                                                                       
+            <span style="color: red;">[{{error}}]</span>
+        {% endfor %}
+    <br />
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+
+
+<h2>check the <a href='/scoreboard'>scoreboard</a> to see how bad you are doing</h2>
+</body>
+</html> 
